@@ -10,6 +10,10 @@ public class PlayerAnimation : MonoBehaviour
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
     private bool _isFliped = false;
+    private const string _runRight = "RunRight";
+    private const string _runLeft = "RunLeft";
+    private const string _runUp = "RunUp";
+    private const string _runDown = "RunDown";
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -24,44 +28,44 @@ public class PlayerAnimation : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            _animator.SetBool("RunRight", true);
+            _animator.SetBool(_runRight, true);
 
             _spriteRenderer.flipX = false;
 
         }
         if (Input.GetKeyUp(KeyCode.D))
         {
-            _animator.SetBool("RunRight", false);
+            _animator.SetBool(_runRight, false);
         }
 
        
         if (Input.GetKeyDown(KeyCode.A))
         {
-            _animator.SetBool("RunLeft", true);
+            _animator.SetBool(_runLeft, true);
 
             _spriteRenderer.flipX = false;
         }
         if (Input.GetKeyUp(KeyCode.A))
         {
-            _animator.SetBool("RunLeft", false);
+            _animator.SetBool(_runLeft, false);
         }
 
         if (Input.GetKeyDown(KeyCode.W))
         {
-            _animator.SetBool("RunUp", true);
+            _animator.SetBool(_runUp, true);
         }
         if (Input.GetKeyUp(KeyCode.W))
         {
-            _animator.SetBool("RunUp", false);
+            _animator.SetBool(_runUp, false);
         }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            _animator.SetBool("RunDown", true);
+            _animator.SetBool(_runDown, true);
         }
         if (Input.GetKeyUp(KeyCode.S))
         {
-            _animator.SetBool("RunDown", false);
+            _animator.SetBool(_runDown, false);
         }
     }
 }

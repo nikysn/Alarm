@@ -11,12 +11,7 @@ public class TextureDisabler : MonoBehaviour
     {
         if (collision.TryGetComponent(out Player player))
         {
-            _house.gameObject.SetActive(false);
             _roof.gameObject.SetActive(false);
-        }
-        else
-        {
-            Destroy(collision.gameObject);
         }
     }
 
@@ -24,7 +19,6 @@ public class TextureDisabler : MonoBehaviour
     {
         if (collision.TryGetComponent(out Player player))
         {
-            _house.gameObject.SetActive(true);
             _roof.gameObject.SetActive(true);
         }
     }

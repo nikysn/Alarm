@@ -10,9 +10,30 @@ public class Alarm : MonoBehaviour
     [SerializeField] private UnityEvent _reached;
     private AudioSource _audioSource;
     private float _delta = 0.002f;
-    private float _minVolume = 0f;
-    private float _maxVolume = 1f;
+    private float _minTarget = 0f;
+    private float _maxTarget = 1f;
     private Coroutine _coroutine;
+
+    public void TurnOnAlarm()
+    {
+        _audioSource.Play();
+
+        if (_coroutine != null)
+        {
+            StopCoroutine(_coroutine);
+        }
+        _coroutine = StartCoroutine(ChangeVolume(_maxTarget));
+    }
+
+    public void TurnOffAlarm()
+    {
+        if (_coroutine != null)
+        {
+            StopCoroutine(_coroutine);
+        }
+
+        _coroutine = StartCoroutine(ChangeVolume(_minTarget));
+    }
 
     private void Awake()
     {
@@ -25,44 +46,12 @@ public class Alarm : MonoBehaviour
         {
             Debug.Log("ћен€ю звук");
             _audioSource.volume = Mathf.MoveTowards(_audioSource.volume, volume, _delta);
-
-            if (_audioSource.volume == _minVolume)
-            {
-                _audioSource.Stop();
-            }
-
             yield return null;
         }
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.TryGetComponent<Player>(out Player player))
+        if (_audioSource.volume == _minTarget)
         {
-            if (_audioSource.isPlaying == false)
-            {
-                _reached?.Invoke();
-                Debug.Log("¬ключаю звук");
-            }
-            if (_coroutine != null)
-            {
-                StopCoroutine(_coroutine);
-            }
-            _coroutine = StartCoroutine(ChangeVolume(_maxVolume));
-
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.TryGetComponent<Player>(out Player player))
-        {
-            if (_coroutine != null)
-            {
-                StopCoroutine(_coroutine);
-            }
-
-            _coroutine = StartCoroutine(ChangeVolume(_minVolume));
+            _audioSource.Stop();
         }
     }
 }
