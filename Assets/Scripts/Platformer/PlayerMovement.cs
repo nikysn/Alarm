@@ -7,11 +7,11 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _speed;
 
-
     private Rigidbody2D _rigibody;
+    private int _jumpPower = 300;
 
-    public bool IsGrounded; //{ get; private set; }
-    public bool IsOnStairs; //{ get; private set; }
+    public bool IsGrounded { get; private set; }
+    public bool IsOnStairs { get; private set; }
 
     private void Awake()
     {
@@ -46,11 +46,11 @@ public class PlayerMovement : MonoBehaviour
     {
         IsGrounded = true;
     }
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         IsGrounded = false;
     }
-
 
     private void Update()
     {
@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded)
         {
-            _rigibody.AddForce(new Vector2(0, 250));
+            _rigibody.AddForce(new Vector2(0, _jumpPower));
         }
 
         if (Input.GetKey(KeyCode.W) && IsOnStairs)
@@ -78,8 +78,5 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.Translate(0, _speed * Time.deltaTime * -1, 0);
         }
-
     }
-
-
 }

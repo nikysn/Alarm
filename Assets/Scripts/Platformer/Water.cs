@@ -9,9 +9,6 @@ public class Water : MonoBehaviour
         if (collision.TryGetComponent<Player>(out Player player))
         {
             Destroy(player.gameObject);
-
         }
-
     }
-
 }

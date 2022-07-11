@@ -6,7 +6,6 @@ public class woodStairs : MonoBehaviour
 {
     [SerializeField] private float _speed;
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent<PlayerMovement>(out PlayerMovement playerMovement))
@@ -14,7 +13,6 @@ public class woodStairs : MonoBehaviour
             playerMovement.SetOnStairs();
         }
     }
-
 
     private void OnTriggerExit2D(Collider2D collision)
     {

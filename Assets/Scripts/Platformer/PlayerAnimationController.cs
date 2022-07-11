@@ -8,7 +8,5 @@ using UnityEngine;
     {
         public const string Run = nameof(Run);
         public const string Jump = nameof(Jump);
-
     }
-
 }

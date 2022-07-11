@@ -18,17 +18,6 @@ public class PlayerAnimation : MonoBehaviour
         _playerMovement = GetComponent<PlayerMovement>();
     }
 
-    public void AnimationJumpOn()
-    {
-          _animator.SetBool(PlayerAnimationController.Params.Jump, true);
-
-    }
-
-    public void AnimationJumpOff()
-    {
-        _animator.SetBool(PlayerAnimationController.Params.Jump, false);
-    }
-
     private void Update()
     {
 
@@ -63,13 +52,11 @@ public class PlayerAnimation : MonoBehaviour
 
         if (_playerMovement.IsGrounded == false && _playerMovement.IsOnStairs == false)
         {
-            AnimationJumpOn();
+            _animator.SetBool(PlayerAnimationController.Params.Jump, true);
         }
         else
         {
-            AnimationJumpOff();
+            _animator.SetBool(PlayerAnimationController.Params.Jump, false);
         }
-
     }
-
 }
