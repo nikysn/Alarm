@@ -44,6 +44,31 @@ public class PlayerMovement : MonoBehaviour
         IsGrounded = false;
     }
 
+    public void MoveLeft()
+    {
+        transform.Translate(_speed * Time.deltaTime * -1, 0, 0);
+    }
+
+    public void MoveRight()
+    {
+        transform.Translate(_speed * Time.deltaTime, 0, 0);
+    }
+
+    public void Jump()
+    {
+        _rigibody.AddForce(new Vector2(0, _jumpPower));
+    }
+
+    public void MoveUp()
+    {
+        transform.Translate(0, _speed * Time.deltaTime, 0);
+    }
+
+    public void MoveDown()
+    {
+        transform.Translate(0, _speed * Time.deltaTime * -1, 0);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         IsGrounded = true;
@@ -54,31 +79,5 @@ public class PlayerMovement : MonoBehaviour
         IsGrounded = false;
     }
 
-    private void Update()
-    {
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(_speed * Time.deltaTime * -1, 0, 0);
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(_speed * Time.deltaTime, 0, 0);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded)
-        {
-            _rigibody.AddForce(new Vector2(0, _jumpPower));
-        }
-
-        if (Input.GetKey(KeyCode.W) && IsOnStairs)
-        {
-            transform.Translate(0, _speed * Time.deltaTime, 0);
-        }
-        if (Input.GetKey(KeyCode.S) && IsOnStairs)
-        {
-            transform.Translate(0, _speed * Time.deltaTime * -1, 0);
-        }
-    }
+   
 }
