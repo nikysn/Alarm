@@ -1161,6 +1161,7 @@ GameObject:
   - component: {fileID: 514558243}
   - component: {fileID: 514558245}
   - component: {fileID: 514558246}
+  - component: {fileID: 514558247}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1285,8 +1286,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
-  IsGrounded: 0
-  IsOnStairs: 0
 --- !u!95 &514558244
 Animator:
   serializedVersion: 4
@@ -1331,6 +1330,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b17342702205aca4eaeead120a4623fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &514558247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514558238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b76c19d975e4754b9d4dc2dd446f414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerMovement: {fileID: 514558243}
+  _playerAnimation: {fileID: 514558245}
 --- !u!1 &663844590
 GameObject:
   m_ObjectHideFlags: 0
@@ -8697,7 +8710,7 @@ GameObject:
   - component: {fileID: 1442486442}
   - component: {fileID: 1442486441}
   - component: {fileID: 1442486440}
-  - component: {fileID: 1442486439}
+  - component: {fileID: 1442486443}
   m_Layer: 0
   m_Name: wood - stairs
   m_TagString: Untagged
@@ -8720,19 +8733,6 @@ Transform:
   m_Father: {fileID: 1637419482}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1442486439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1442486437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 895137ec8b186e243836702b28fdf2a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 3
 --- !u!61 &1442486440
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8974,6 +8974,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1442486443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442486437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 895137ec8b186e243836702b28fdf2a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 2
 --- !u!1 &1506176067
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,7 @@ public class PlayerAnimation : MonoBehaviour
         _playerMovement = GetComponent<PlayerMovement>();
     }
 
-    private void ÑheckLocation()
+    public void CheckLocation()
     {
         if (_playerMovement.IsGrounded)
         {
@@ -27,36 +27,23 @@ public class PlayerAnimation : MonoBehaviour
         }
     }
 
-    private void DisableAnimation()
+   public void DisableAnimation()
     {
         _animator.SetBool(PlayerAnimationController.Params.Run, false);
     }
 
+   public void FlipXOn()
+    {
+        _spriteRenderer.flipX = true;
+    }
+
+    public void FlipXOff()
+    {
+        _spriteRenderer.flipX = false;
+    }
+
     private void Update()
     {
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            _spriteRenderer.flipX = true;
-
-            ÑheckLocation();
-        }
-        if (Input.GetKeyUp(KeyCode.A) || _playerMovement.IsGrounded == false)
-        {
-            DisableAnimation();
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            _spriteRenderer.flipX = false;
-
-            ÑheckLocation();
-        }
-        if (Input.GetKeyUp(KeyCode.D) || _playerMovement.IsGrounded == false)
-        {
-            DisableAnimation();
-        }
-
         if (_playerMovement.IsGrounded == false && _playerMovement.IsOnStairs == false)
         {
             _animator.SetBool(PlayerAnimationController.Params.Jump, true);
