@@ -7,9 +7,5 @@ namespace Skelet
     public class Roof : MonoBehaviour
     {
 
-        private void Start()
-        {
-            
-        }
     }
 }

@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Skelet
+public class PlayerInput : MonoBehaviour
 {
-    public class Wall : MonoBehaviour
+   public void Set()
     {
-       
+        Input.GetKey(KeyCode.A);
     }
 }

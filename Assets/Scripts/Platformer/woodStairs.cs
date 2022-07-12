@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class woodStairs : MonoBehaviour
+public class WoodStairs : MonoBehaviour
 {
     [SerializeField] private float _speed;
 

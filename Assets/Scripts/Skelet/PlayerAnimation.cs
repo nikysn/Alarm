@@ -14,10 +14,12 @@ namespace Skelet
         private Animator _animator;
         private SpriteRenderer _spriteRenderer;
         private bool _isFliped = false;
-        private const string _runRight = "RunRight";
-        private const string _runLeft = "RunLeft";
-        private const string _runUp = "RunUp";
-        private const string _runDown = "RunDown";
+        
+        private const string RunRight = "RunRight";
+        private const string RunLeft = "RunLeft";
+        private const string RunUp = "RunUp";
+        private const string RunDown = "RunDown";
+       
         private void Awake()
         {
             _animator = GetComponent<Animator>();
@@ -32,44 +34,44 @@ namespace Skelet
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
-                _animator.SetBool(_runRight, true);
+                _animator.SetBool(RunRight, true);
 
                 _spriteRenderer.flipX = false;
 
             }
             if (Input.GetKeyUp(KeyCode.D))
             {
-                _animator.SetBool(_runRight, false);
+                _animator.SetBool(RunRight, false);
             }
 
 
             if (Input.GetKeyDown(KeyCode.A))
             {
-                _animator.SetBool(_runLeft, true);
+                _animator.SetBool(RunLeft, true);
 
                 _spriteRenderer.flipX = false;
             }
             if (Input.GetKeyUp(KeyCode.A))
             {
-                _animator.SetBool(_runLeft, false);
+                _animator.SetBool(RunLeft, false);
             }
 
             if (Input.GetKeyDown(KeyCode.W))
             {
-                _animator.SetBool(_runUp, true);
+                _animator.SetBool(RunUp, true);
             }
             if (Input.GetKeyUp(KeyCode.W))
             {
-                _animator.SetBool(_runUp, false);
+                _animator.SetBool(RunUp, false);
             }
 
             if (Input.GetKeyDown(KeyCode.S))
             {
-                _animator.SetBool(_runDown, true);
+                _animator.SetBool(RunDown, true);
             }
             if (Input.GetKeyUp(KeyCode.S))
             {
-                _animator.SetBool(_runDown, false);
+                _animator.SetBool(RunDown, false);
             }
         }
     }
